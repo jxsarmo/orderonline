@@ -96,11 +96,17 @@ if (isset($_GET["action"])){
                     <?php 
         
     
-                            $server = 'localhost';
+                          /*  $server = 'localhost';
                             $user = 'root';
                             $password = 'root';
-                            $db_name = 'yummy-bar'; /*name of the table created*/
-                            $port = '3306'; /*MySQL port in Xampp*/
+                            $db_name = 'yummy-bar'; name of the table created
+                            $port = '3306'; MySQL port in Xampp*/
+
+                            $server = 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+                            $user = 'silulw6q1bquo1gc';
+                            $password = 'qcdzu4wvonapunu4';
+                            $db_name = 'c7w3q9s4d50778ny'; 
+                            $port = '3306'; 
     
                             $db_connect = new mysqli($server,$user,$password,$db_name,$port);
                             mysqli_set_charset($db_connect,"utf8");
@@ -154,11 +160,19 @@ if (isset($_GET["action"])){
 
 
 
-                        $server = 'localhost';
+                        /* $server = 'localhost';
                         $user = 'root';
                         $password = 'root';
-                        $db_name = 'yummy-bar'; /*name of the table created*/
-                        $port = '3306'; /*MySQL port in Xampp*/
+                        $db_name = 'yummy-bar'; name of the table created
+                        $port = '3306'; MySQL port in Xampp*/
+
+
+                        $server = 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+                        $user = 'silulw6q1bquo1gc';
+                        $password = 'qcdzu4wvonapunu4';
+                        $db_name = 'c7w3q9s4d50778ny'; 
+                        $port = '3306'; 
+
 
                         $db_connect = new mysqli($server,$user,$password,$db_name,$port);
                         mysqli_set_charset($db_connect,"utf8");
@@ -217,11 +231,17 @@ if (isset($_GET["action"])){
 
 
 
-                                $server = 'localhost';
+                                /*$server = 'localhost';
                                 $user = 'root';
                                 $password = 'root';
-                                $db_name = 'yummy-bar'; /*name of the table created*/
-                                $port = '3306'; /*MySQL port in Xampp*/
+                                $db_name = 'yummy-bar'; name of the table created
+                                $port = '3306'; MySQL port in Xampp*/
+
+                                $server = 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+                                $user = 'silulw6q1bquo1gc';
+                                $password = 'qcdzu4wvonapunu4';
+                                $db_name = 'c7w3q9s4d50778ny'; 
+                                $port = '3306'; 
 
                                 $db_connect = new mysqli($server,$user,$password,$db_name,$port);
                                 mysqli_set_charset($db_connect,"utf8");
@@ -274,11 +294,17 @@ if (isset($_GET["action"])){
 
 
 
-                                $server = 'localhost';
+                               /* $server = 'localhost';
                                 $user = 'root';
                                 $password = 'root';
-                                $db_name = 'yummy-bar'; /*name of the table created*/
-                                $port = '3306'; /*MySQL port in Xampp*/
+                                $db_name = 'yummy-bar'; name of the table created
+                                $port = '3306'; MySQL port in Xampp*/
+
+                                $server = 'mna97msstjnkkp7h.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+                                $user = 'silulw6q1bquo1gc';
+                                $password = 'qcdzu4wvonapunu4';
+                                $db_name = 'c7w3q9s4d50778ny'; 
+                                $port = '3306'; 
 
                                 $db_connect = new mysqli($server,$user,$password,$db_name,$port);
                                 mysqli_set_charset($db_connect,"utf8");
