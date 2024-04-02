@@ -67,7 +67,7 @@
           /*send array to database*/
 
           
-          $server = 'localhost';
+          $server = 'db2';
           $user = 'root';
           $password = 'root';
           $db_name = 'yummy-bar'; /*name of the table created*/
@@ -171,6 +171,11 @@
                     <?php 
                     include 'admin/db_connect.php';
                     $qry = $conn->query("SELECT * FROM product_list WHERE Category = 'appetizers'");
+
+                    if(!$qry) {
+                        die("Query Failed: " . $conn->error);
+                    }
+                    
                     while($row = $qry->fetch_assoc()):
                     ?> 
 

@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  webserver:
+    build: 
+      context: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db1
+      - db2
+    environment:
+      # Environment variables for db1
+      DB1_HOST: db1
+      DB1_NAME: yummy_bar_new
+      DB1_USER: root
+      DB1_PASSWORD: root
+      
+      # Environment variables for db2
+      DB2_HOST: db2
+      DB2_NAME: yummy-bar
+      DB2_USER: root
+      DB2_PASSWORD: root
+      
+      # Application URL
+      SITE_URL: http://localhost:8080
+
+  db1:
+    image: mysql:5.7
+    volumes:
+      - db1_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: yummy_bar_new
+
+  db2:
+    image: mysql:5.7
+    volumes:
+      - db2_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: yummy-bar
+
+volumes:
+  db1_data:
+  db2_data:

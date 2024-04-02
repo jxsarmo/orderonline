@@ -1,6 +1,6 @@
 <?php 
   include 'admin/db_connect.php';
-  $qry = $conn->query("SELECT * FROM  product_list where id = ".$_GET['id'])->fetch_array();
+ $qry = $conn->query("SELECT * FROM  product_list where id = ".$_GET['id'])->fetch_array();
 	
 ?>
 <div class="container-fluid">

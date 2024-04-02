@@ -6,12 +6,17 @@ $password = 'qcdzu4wvonapunu4';
 $db_name = 'c7w3q9s4d50778ny'; 
 $port = '3306'; */
 
-$server = 'localhost';
+// Updated server details for Docker environment
+$server = 'db1'; // Use the service name defined in docker-compose.yml as the hostname
 $user = 'root';
 $password = 'root';
-$db_name = 'yummy_bar_new'; 
-$port = '3306'; 
+$db_name = 'yummy_bar_new';
+$port = '3306';
 
-$conn= new mysqli('localhost','root','root','yummy_bar_new', '3306')or die("Could not connect to mysql".mysqli_error($con));
-/*$conn= new mysqli($server, $user, $password, $db_name, $port)or die("Could not connect to mysql".mysqli_error($con));*/
+// Create connection using updated server details
+$conn = new mysqli($server, $user, $password, $db_name, $port);
 
+// Check connection
+if ($conn->connect_error) {
+    die("Could not connect to MySQL: " . $conn->connect_error);
+}
