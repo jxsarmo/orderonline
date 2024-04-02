@@ -67,7 +67,7 @@
           /*send array to database*/
 
           
-          $server = 'db2';
+          $server = 'host.docker.internal';
           $user = 'root';
           $password = 'root';
           $db_name = 'yummy-bar'; /*name of the table created*/
@@ -175,7 +175,7 @@
                     if(!$qry) {
                         die("Query Failed: " . $conn->error);
                     }
-                    
+
                     while($row = $qry->fetch_assoc()):
                     ?> 
 

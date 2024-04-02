@@ -96,7 +96,7 @@ if (isset($_GET["action"])){
                     <?php 
         
     
-                            $server = 'db2';
+                            $server = 'host.docker.internal';
                             $user = 'root';
                             $password = 'root';
                             $db_name = 'yummy-bar'; /*name of the table created*/
@@ -160,7 +160,7 @@ if (isset($_GET["action"])){
 
 
 
-                        $server = 'db2';
+                        $server = 'host.docker.internal';
                         $user = 'root';
                         $password = 'root';
                         $db_name = 'yummy-bar'; /*name of the table created*/
@@ -231,7 +231,7 @@ if (isset($_GET["action"])){
 
 
 
-                                $server = 'db2';
+                                $server = 'host.docker.internal';
                                 $user = 'root';
                                 $password = 'root';
                                 $db_name = 'yummy-bar'; /*name of the table created*/
@@ -294,7 +294,7 @@ if (isset($_GET["action"])){
 
 
 
-                                $server = 'db2';
+                                $server = 'host.docker.internal';
                                 $user = 'root';
                                 $password = 'root';
                                 $db_name = 'yummy-bar'; /*name of the table created*/

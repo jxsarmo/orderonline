@@ -1,7 +1,7 @@
 <?php
 
 // Updated server details for Docker environment
-$server = 'db2'; // Use the service name defined in docker-compose.yml as the hostname
+$server = 'host.docker.internal'; // Use the service name defined in docker-compose.yml as the hostname
 $user = 'root';
 $password = 'root';
 $db_name = 'yummy-bar'; // Name of the database

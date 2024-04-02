@@ -7,7 +7,7 @@ $db_name = 'c7w3q9s4d50778ny';
 $port = '3306'; */
 
 // Updated server details for Docker environment
-$server = 'db1'; // Use the service name defined in docker-compose.yml as the hostname
+$server = 'host.docker.internal'; // Use the service name defined in docker-compose.yml as the hostname
 $user = 'root';
 $password = 'root';
 $db_name = 'yummy_bar_new';
