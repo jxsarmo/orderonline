@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 Class Action {
 	private $db;
 
@@ -27,21 +30,25 @@ Class Action {
 			return 3;
 		}
 	}
-	function login2(){
+
+	function login2() {
 		extract($_POST);
 		$qry = $this->db->query("SELECT * FROM user_info where email = '".$email."' and password = '".md5($password)."' ");
-		if($qry->num_rows > 0){
+		if ($qry->num_rows > 0) {
 			foreach ($qry->fetch_array() as $key => $value) {
-				if($key != 'passwors' && !is_numeric($key))
+				if ($key != 'password' && !is_numeric($key)) { // Corrected 'passwors' to 'password'
 					$_SESSION['login_'.$key] = $value;
+				}
 			}
-			$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+			$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']);
 			$this->db->query("UPDATE cart set user_id = '".$_SESSION['login_user_id']."' where client_ip ='$ip' ");
-				return 1;
-		}else{
+			return 1;
+		} else {
 			return 3;
 		}
 	}
+	
+
 	function logout(){
 		session_destroy();
 		foreach ($_SESSION as $key => $value) {
@@ -182,7 +189,7 @@ Class Action {
 		if(isset($_SESSION['login_user_id'])){
 			$data .= ", user_id = '".$_SESSION['login_user_id']."' ";	
 		}else{
-			$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+			$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']);
 			$data .= ", client_ip = '".$ip."' ";	
 
 		}
@@ -196,7 +203,7 @@ Class Action {
 			$where =" where user_id = '".$_SESSION['login_user_id']."'  ";
 		}
 		else{
-			$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+			$ip = isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR']);
 			$where =" where client_ip = '$ip'  ";
 		}
 		$get = $this->db->query("SELECT sum(qty) as cart FROM cart ".$where);

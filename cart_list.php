@@ -4,7 +4,6 @@
 
 include 'admin/db_connect.php';
 
-
 ?>
 
 
@@ -196,6 +195,7 @@ include 'admin/db_connect.php';
 				 $(this).parent().siblings('input[name="price"]').val(parseInt(qty) +1);
 		update_qty(parseInt(qty) +1,$(this).attr('data-id'))
 		})
+		
 		function update_price(qty,price){
 			start_load()
 			$.ajax({

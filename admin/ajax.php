@@ -1,6 +1,8 @@
 <?php
+session_start(); // Start the session at the very beginning of the script
 ob_start();
-$action = $_GET['action'];
+
+$action = isset($_GET['action']) ? $_GET['action'] : '';
 include 'admin_class.php';
 $crud = new Action();
 
@@ -9,10 +11,14 @@ if($action == 'login'){
 	if($login)
 		echo $login;
 }
+
+
 if($action == 'login2'){
 	$login = $crud->login2();
 	if($login)
 		echo $login;
+
+		
 }
 if($action == 'logout'){
 	$logout = $crud->logout();
